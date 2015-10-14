@@ -19,7 +19,16 @@ import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import static java.lang.Math.random;
+import java.util.Random;
 import java.util.Scanner;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
+import javafx.stage.Stage;
 
 public class Shen_7_MethodMadness extends Application {
  
@@ -29,13 +38,27 @@ public class Shen_7_MethodMadness extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.setTitle("Drawing Operations Test");
         Group root = new Group();
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Enter an integer 1-10");
-        int usernum = reader.nextInt();
-        Scene scene = new Scene(root, 800, 600, Color.AQUA);
-        primaryStage.setScene(scene);
+        Canvas canvas = new Canvas(300, 250);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        drawBCircle(gc, 25, 66, 13, 14);
+        drawStriangle(gc, 25, 66, 13, 14);
+        root.getChildren().add(canvas);
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
+    }
+    private void drawBCircle(GraphicsContext circ, int x, int y, int w, int h) {
+        circ.setFill(Color.CRIMSON);
+        circ.fillRect(x, y, w, h);
+    }
+    private void drawStriangle(GraphicsContext tri, int x, int y, int w, int h) {
+        Random rand = new Random();
+        int xPoints = rand.nextInt(400);
+        int yPoints = rand.nextInt(400);
+        tri.setFill(Color.CRIMSON);
+        tri.fillRect(x, y, w, h);
+        tri.fillPolygon(xPoints, yPoints, 3);
     }
     /*fractal examples:
     https://courses.cs.washington.edu/courses/cse143/11sp/lectures/Sierpinski.java
