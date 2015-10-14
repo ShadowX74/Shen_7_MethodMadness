@@ -40,10 +40,10 @@ public class Shen_7_MethodMadness extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Drawing Operations Test");
         Group root = new Group();
-        Canvas canvas = new Canvas(300, 250);
+        Canvas canvas = new Canvas(600, 600);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         drawBCircle(gc, 25, 66, 13, 14);
-        drawStriangle(gc, 25, 66, 13, 14);
+        drawSTriangle(gc, 25, 66, 13, 14);
         root.getChildren().add(canvas);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -52,13 +52,16 @@ public class Shen_7_MethodMadness extends Application {
         circ.setFill(Color.CRIMSON);
         circ.fillRect(x, y, w, h);
     }
-    private void drawStriangle(GraphicsContext tri, int x, int y, int w, int h) {
-        Random rand = new Random();
-        int xPoints = rand.nextInt(400);
-        int yPoints = rand.nextInt(400);
-        tri.setFill(Color.CRIMSON);
-        tri.fillRect(x, y, w, h);
-        tri.fillPolygon(xPoints, yPoints, 3);
+    private void drawSTriangle(GraphicsContext tri, int x, int y, int w, int h) {
+        for (int i=1; i<input; i++){
+            Random rand = new Random();
+            double [] xPoints = {rand.nextInt(600), rand.nextInt(600), rand.nextInt(600)};
+            double [] yPoints = {rand.nextInt(600), rand.nextInt(600), rand.nextInt(600)};
+            tri.setFill(Color.CRIMSON);
+            tri.fillRect(x, y, w, h);
+            tri.fillPolygon(xPoints, yPoints, 3);
+        }
+
     }
     /*fractal examples:
     https://courses.cs.washington.edu/courses/cse143/11sp/lectures/Sierpinski.java
