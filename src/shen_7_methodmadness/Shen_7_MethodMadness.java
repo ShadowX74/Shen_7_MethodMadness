@@ -42,8 +42,8 @@ public class Shen_7_MethodMadness extends Application {
         primaryStage.setTitle("Fractals");
         Group root = new Group();
         Canvas canvas = new Canvas(600, 600);
+//      drawBCircle(gc, 25, 66, 13, 14);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-//        drawBCircle(gc, 25, 66, 13, 14);
         drawSTriangle(gc);
         root.getChildren().add(canvas);
         primaryStage.setScene(new Scene(root));
@@ -69,14 +69,29 @@ public class Shen_7_MethodMadness extends Application {
         System.out.print("What level do you want? ");
         int level = console.nextInt();
         int triangleHeight = (int) Math.round(SIZE * Math.sqrt(3.0) / 2.0);
-//        double [] xPoints = {0, SIZE / 2, SIZE};
-//        double [] yPoints = {triangleHeight, 0, triangleHeight};
-//        tri.fillPolygon(xPoints, yPoints, 3);
-        int p1 = new Point(0, triangleHeight);
-        int p2 = new Point(SIZE / 2, 0);
-        int p3 = new Point(SIZE, triangleHeight);
-        drawFigure(level, g, p1, p2, p3);
+        double [] xPoints = {0, SIZE / 2, SIZE};
+        double [] yPoints = {triangleHeight, 0, triangleHeight};
+        tri.fillPolygon(xPoints, yPoints, 3);
+        if (level >= 2) {
+            double [] p1 = {0, triangleHeight};
+            double [] p2 = {SIZE / 2, 0};
+            double [] p3 = {SIZE, triangleHeight};
+            double [] p4 = {SIZE/4, triangleHeight/2};
+            double [] p5 = {(SIZE/2+SIZE)/2, triangleHeight/2};
+            double [] p6 = {SIZE/2, triangleHeight};
+            double [] xPoints1 = {p1[0], p4[0], p6[0]};
+            double [] yPoints1 = {p1[1], p4[1], p6[1]};
+            double [] xPoints2 = {p4[0], p2[0], p5[0]};
+            double [] yPoints2 = {p4[1], p2[1], p5[1]};
+            double [] xPoints3 = {p6[0], p5[0], p3[0]};
+            double [] yPoints3 = {p6[1], p5[1], p3[1]};
+            // recurse on 3 triangular areas
+            tri.fillPolygon(xPoints1, yPoints1, 3);
+            tri.fillPolygon(xPoints2, yPoints2, 3);
+            tri.fillPolygon(xPoints3, yPoints3, 3);
+        }
     }
+
     /*fractal examples:
     https://courses.cs.washington.edu/courses/cse143/11sp/lectures/Sierpinski.java
     http://www.netgraphics.sk/bresenham-algorithm-for-a-circle
