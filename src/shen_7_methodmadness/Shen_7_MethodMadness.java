@@ -1,25 +1,5 @@
 package shen_7_methodmadness;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.effect.BlendMode;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.CycleMethod;
-import javafx.scene.paint.LinearGradient;
-import javafx.scene.paint.Stop;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.StrokeType;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import static java.lang.Math.random;
-import java.util.Random;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -27,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 
 public class Shen_7_MethodMadness extends Application {
