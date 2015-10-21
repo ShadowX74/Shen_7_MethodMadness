@@ -23,7 +23,7 @@ public class Shen_7_MethodMadness extends Application {
         Canvas canvas = new Canvas(600, 600);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         Scanner console = new Scanner(System.in);
-        System.out.print("What level do you want? ");
+        System.out.print("Do you want level one or two?");
         int level = console.nextInt();
         drawSTriangle1(gc, level);
         if (level >= 2) {
