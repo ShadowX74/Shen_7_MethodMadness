@@ -47,7 +47,7 @@ public class Shen_7_MethodMadness extends Application {
         tri.setStroke(Color.BLACK);
         double [] xPoints = {0, SIZE/2, SIZE};
         double [] yPoints = {triangleHeight, 0, triangleHeight};
-        if (fillOrStroke(i)) {
+        if (i == 1) {
             tri.fillPolygon(xPoints, yPoints, 3);
         }
         tri.strokePolygon(xPoints, yPoints, 3);
@@ -76,9 +76,6 @@ public class Shen_7_MethodMadness extends Application {
         double [] xPoints = {600, SIZE/3*2+4, SIZE/4*3};
         double [] yPoints = {0, triangleHeight/4+50, triangleHeight/2};
         gc.fillPolygon(xPoints, yPoints, 3);
-    }
-    private boolean fillOrStroke(int level) {
-        return (level == 1);
     }
 }
 
